@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+      name="description"
+      content="Stay organized with our user-friendly Calendar featuring events, reminders, and a customizable interface. Built with HTML, CSS, and JavaScript. Start scheduling today!"
+    />
+    <meta
+      name="keywords"
+      content="calendar, events, reminders, javascript, html, css, open source coding"
+    />
+<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/new_home.css" />
+    <link rel="stylesheet" href="styles/calendar.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/music.css" />
+    <link rel="stylesheet" href="styles/stopwatch.css" />
+    <link rel="stylesheet" href="styles/timer.css" />
+    <link rel="stylesheet" href="styles/clock.css" />
+    <link rel="stylesheet" href="styles/worldclock.css" />
+    <link rel="stylesheet" href="styles/systemdatatime.css" />
+    <!-- <link rel="stylesheet" href="styles/timeline.css"/> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xx+ZCDSnqP6Nf10QwV5Ff3Kxn9p3E8nqPiIn1eB9+jxqWg9pBn4p+KSDpO3RE368F5dDZw4phRbgNmHDfLbAqLg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/6f0f83005a.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script> -->
+
+    <!-- <script src="scripts/welcome_note.js"></script> -->
+    <script src="scripts/weather.js"></script>
+    <script src="scripts/clock.js"></script>
+    <script src="scripts/alarm.js"></script>
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/music.js"></script>
+    <script src="scripts/stopwatch.js"></script>
+    <script src="scripts/worldclock.js"></script>
+    <script src="scripts/timerdiv.js"></script>
+    <script src="scripts/systemsdatetime.js"></script>
+    <!-- <script src="scripts/timeline.js"></script> -->
+    <script src="https://kit.fontawesome.com/d5fba335cd.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+      .audio-card {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+  
+      .album-art {
+        margin-right: 20px;
+        width: 100px;
+        height: 100px;
+      }
+
+      /* Add some styles for the active link */
+      .active {
+            background-color: #33333361;
+            border-radius: 10px;
+        }
+      </style>
+
+</head>
+<body>
+    <!-- <script>
+        // Call your function after the DOM is fully loaded
+        window.onload = function() {
+          consoleText(['Hello Vijay!', 'Good Morning...'], 'text', ['white',  'Yellow']);
+        };
+    </script> -->
+
+
+
+    <div class="nav_container">
+      <nav>
+        <a href="#first" id="firstLink"><i class="fa-solid fa-house" style="color: #ffffff;"></i></a>
+        <a href="#second" id="secondLink"><i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i></a>
+        <a href="#third" id="thirdLink"><i class="fa-solid fa-music" style="color: #ffffff;"></i></a>
+        <a href="#fourth" id="fourthLink"><i class="far fa-address-card"></i></a>
+    </nav>
+    </div>
+
+     <div class= 'container'>
+       <section id= 'first'>
+         
+   
+          <!--digital clock start-->
+          <div style="width: 100vw; height: 80%; display: flex;">
+          <div class="flexbox_dashboard" style="width: 30%;">
+            <div style="height: 100px; ">
+              
+              
+              <div class='flexbox_weather'>
+                <div class="row">
+                    <header onclick="openModal()" style="display: block; ">
+                        <p id="headerText" style="font-size: 20px; margin-top: 1px; margin-left: 0px;">Chennai</p>
+                      </header>
+
+                      <div id="modal">
+                        <label for="searchInput">Search City:</label>
+                        <input type="text" id="searchInput">
+                        <button onclick="updateHeader()">Search</button>
+                        <button onclick="cancel()">Cancel</button>
+                      </div>
+                    <div id="weather-display" >
+                      
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="flexbox_alarmlist">
+              <h2 style="font-size: 25px; font-weight: 100; text-align: center; color: antiquewhite; margin-left: 50px;">  Upcomming Alarms</h2>
+              <div id="alarmList">
+                  
+                  <div id="alarms"></div>
+                  <div class="add-alarm-card" onclick="showAlarmPopup()">Add Alarm</div>
+                </div>
+                
+               <audio id="alarmSound" src="alarm_ringtone2.mp3" preload="auto"></audio>
+
+          </div>
+          </div>
+        
+        <div class="flexbox_dashboard" style="width: 40%;">
+            <div class="clock-container">
+          
+                <div class="date-container">
+                  <div class="date" id="day"></div>
+                  <div class="date" id="date"></div>
+                  <div class="date" id="month"></div>
+                  <div class="date" id="year"></div>
+                </div>
+      
+                <div class="time-container">
+                  <div class="time" id="hours"></div>
+                  <div class="time">:</div>
+                  <div class="time" id="minutes"></div>
+                  <div class="time">:</div>
+                  <div class="time" id="seconds"></div>
+                  <div class="time" id="ampm"></div>
+                </div>
+              </div>
+              
+            
+        </div>
+
+        <div class="flexbox_dashboard" style="width: 30%;">
+          <div class="worldclock">
+            <div id="worldtimezone-label" onclick="showTimeZonePopup()">London</div>
+            <div id="worldtime"></div>
+            <div id="worlddate"></div>
+            
+          </div>
+          <div id="worldtimezone-popup" class="worldpopup">
+            <select id="worldtimezone-select">
+              <!-- Add more timezone options as needed -->
+              <option value="Europe/London">London</option>
+              <option value="America/New_York">New York</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+            </select>
+            <button onclick="updateTimeZone()">Change Timezone</button>
+          </div>
+
+          <div style="height: 400px;">
+            <div class="timeline-wrap" style="overflow: auto;">
+              <div class='timeline1'>
+
+              
+              </div>
+            </div>
+          </div>
+
+          <div class="othermenu">
+            <button id="stopwatch" onclick="showStopwatchPopup()" ><i class="fa-solid fa-stopwatch" style="color: #6f00b3; font-size: 3.5em;"></i></button>
+            <button id="timer" onclick="showTimerPopup()"><i class="fa-solid fa-hourglass-end " style="color: #a9003b; font-size: 3.5em;"></i></button>
+            <button id="music4"><i class="fa-solid fa-file-audio" style="color: #34a500; font-size: 3.5em;"></i></button>
+            <button id="settings" onclick="showSettingsPopup()"><i class="fa-solid fa-gear" style="color: #925300; font-size: 3.5em;"></i></button>
+            
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display: flex; height: 20%; width: 100vw;">
+        <div class="controls" id="controls-home">
+          <div class="home-audio-wrap" style="width: 30%;">
+            <div id="song-image-home"><img id="songImage_home" height="80px" width="80px" src="Images/music-empty.jpg" alt="album-art"></div>
+            <div class="song-info-home">
+              <div id="song-title-home">Title: Unknown</div>
+              <div id="song-artist-home">Artist: Unknown</div>
+            </div>
+          </div>
+          <div class="media-buttons" style="width: 40; justify-content: center;">
+            <button id="repeatBtn-home">
+              <i class="fas fa-repeat button-icons delta"></i>
+              <span class="button-text milli"></span>
+            </button>
+
+            <button class="back-button media-button " id="prevBtn-home" label="back">
+              <i class="fas fa-step-backward button-icons"></i>
+              <span class="button-text milli"></span>
+            </button>
+        
+          
+        
+            <button class="play-button media-button play-pause-button" id="playPauseBtn-home" label="play">
+              <i class="fas fa-play button-icons delta"></i>
+              <span class="button-text milli"></span>
+            </button>
+        
+           
+        
+            <button class="skip-button media-button" id="nextBtn-home" label="skip">
+              <i class="fas fa-step-forward button-icons"></i>
+              <span class="button-text milli"></span>
+            </button>
+
+            <button id="volumeBtn-home">
+              <i class="fas fa-volume-up button-icons delta"></i>
+              <span class="button-text milli"></span>
+            </button>
+
+          </div>
+          
+          <!-- <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
+          <button id="playPauseBtn"><i class="fas fa-play" style="font-size: 30px;"></i></button>
+           <button id="stopBtn"><i class="fas fa-stop"></i></button>
+          <button id="nextBtn"><i class="fas fa-step-forward"></i></button> -->
+          
+        
+          <input type="range" id="volumeSlider-home" min="0" max="1" step="0.01" value="6">
+          <div class="progress_and_time_wrapper_home">
+          <div class="progress-bar-wrapper_home">
+            
+              <input type="range" id="music-progress-bar_home" class="music-progress-bar_home" min="0" max="100" step="0.1" value="0">
+              <div class="progress-fill_home" ></div>
+          </div>
+          <div id="time-display_home" class="time-display_home">0:00 / 0:00</div>
+        </div>
+      </div>
+      </div>
+
+        <div id="overlay-stopwatch-popup">
+          
+              <div id="stopwatch-popup" class="stopwatch-popup">
+                <h2 style="color:cornflowerblue; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;">stopwatch</h2>
+                <div id="display">00:00:00</div>
+                <button id="startPauseButton" onclick="SWstartPause()"><i class="fas fa-play"></i> Start/Pause</button>
+                <button onclick="SWstop()"><i class="fas fa-stop"></i> Stop</button>
+                <button onclick="SWlap()"><i class="fas fa-flag"></i> Lap</button>
+                
+                <div id="lapList"></div>
+               
+              </div>
+              <button class="stopwatch-close-popup" onclick="stopwatch_closePopup()"><i class="fas fa-close" style="color: aliceblue; font-size: 3.5em;"></i></button>
+        </div>
+
+        <audio id="beep">
+          <source src="beep1.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+      </audio>
+
+          <div id="overlay-timer-popup">
+            <div class="timer-popup" id="timer-popup">
+                  <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="color: #8a0236; box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;">stopwatch</h2>
+                    <div class="settimerRow">
+                      <label for="thours">Set Hours:</label>
+                      <button onclick="adjustTime('thours', 1)"><i class="fas fa-plus"></i></button>
+                      <span id="thours">00</span>
+                      <button onclick="adjustTime('thours', -1)"><i class="fas fa-minus"></i></button>
+                    </div>
+                    
+                    <div class="settimerRow">
+                      <label for="tminutes">Set Minutes:</label>
+                      <button onclick="adjustTime('tminutes', 1)"><i class="fas fa-plus"></i></button>
+                      <span id="tminutes">00</span>
+                      <button onclick="adjustTime('tminutes', -1)"><i class="fas fa-minus"></i></button>
+                    </div>
+                
+                    <div class="settimerRow">
+                      <label for="tseconds">Set Seconds:</label>
+                      <button onclick="adjustTime('tseconds', 1)"><i class="fas fa-plus"></i></button>
+                      <span id="tseconds">00</span>
+                      <button onclick="adjustTime('tseconds', -1)"><i class="fas fa-minus"></i></button>
+                    </div>
+                </div>
+                
+                <div id="timer-controls">
+                    <button onclick="setTimer()">Set Timer</button>
+                    <button onclick="startPauseTimer()"><i id="tstartPauseIcon" class="fas fa-play"></i></button>
+                    <button onclick="cancelTimer()">Cancel</button>
+                </div>
+                
+                <div id="tdisplay">00:00:00</div>
+            
+            </div>
+            <button class="timer-close-popup" onclick="timer_closePopup()"><i class="fas fa-close" style="color: aliceblue; font-size: 3.5em;"></i></button>
+          </div>
+
+          <div id="overlay-settings-popup">
+            <div class="settings-popup" id="settings-popup">
+                  <div >
+                    <label for="sysdatetime">Choose a date and time:</label>
+    <input type="datetime-local" id="sysdatetime">
+
+    <button onclick="setSystemDateTime()">Set System Date and Time</button>
+                    
+                </div>
+            
+            </div>
+            <button class="settings-close-popup" onclick="settings_closePopup()"><i class="fas fa-close" style="color: aliceblue; font-size: 3.5em;"></i></button>
+          </div>
+
+        <div id="overlay-alarmlist-popup">
+          <div id="setAlarm-popup" class="setAlarm-popup">
+              <header style="color: rgb(0, 67, 49);">Set Alarm</header>
+              <div id="alarm-controls">
+                  <div class="time-input-container">
+                    <input type="time" id="alarmTime">
+                  </div>
+                 
+                
+               <!-- Weekdays checkboxes with custom styles -->
+    <div id="alarm-weekdays">
+      <label>
+          <input type="checkbox" value="0" class="hidden-checkbox" id="day1">
+          <span class="checkbox-box"></span> Sun
+      </label>
+    
+    <label>
+          <input type="checkbox" value="1" class="hidden-checkbox" id="day2">
+          <span class="checkbox-box"></span> Mon
+      </label>
+    
+    <label>
+          <input type="checkbox" value="2" class="hidden-checkbox" id="day3">
+          <span class="checkbox-box"></span> Tue
+      </label>
+
+     <label>
+          <input type="checkbox" value="3" class="hidden-checkbox" id="day4">
+          <span class="checkbox-box"></span> Wed
+      </label>
+    
+    <label>
+          <input type="checkbox" value="4" class="hidden-checkbox" id="day5">
+          <span class="checkbox-box"></span> Thu
+      </label>
+    
+    <label>
+          <input type="checkbox" value="5" class="hidden-checkbox" id="day6">
+          <span class="checkbox-box"></span> Fri
+      </label>
+
+     <label>
+          <input type="checkbox" value="6" class="hidden-checkbox" id="day7">
+          <span class="checkbox-box"></span> Sat
+      </label>
+      <!-- Repeat similar structure for other days -->
+  </div>
+              <div id="setAlarm-buttons" class="setAlarm-buttons">
+                  <button onclick="setAlarm()">Set</button>
+                  <button onclick="clearAlarmPopup()">Clear</button>
+                  <button onclick="closePopup()">Cancel</button>
+              </div>
+              </div>
+          </div>
+        </div>
+     
+          <div id="alarmPopup" class="popup">
+              <h2>Alarm Alert!</h2>
+              <div id="alarmIcon" class="alarm-icon" style="height: 200px; width: 200px;"></div>
+              <p>Your alarm is ringing.</p>
+              <button onclick="stopAlarm()">Stop Alarm</button>
+          </div>
+      <!--digital clock end-->
+  
+     
+       </section>
+
+
+       <section id= 'second'>
+
+            <div class="flexbox_cal">
+                <div class="container-cal">
+                  <div class="left">
+                    <div class="calendar">
+                      <div class="month">
+                        <i class="fas fa-angle-left prev"></i>
+                        <div class="date_current" >January 2024</div>
+                        <i class="fas fa-angle-right next"></i>
+                      </div>
+                      <div class="weekdays">
+                        <div>Sun</div>
+                        <div>Mon</div>
+                        <div>Tue</div>
+                        <div>Wed</div>
+                        <div>Thu</div>
+                        <div>Fri</div>
+                        <div>Sat</div>
+                      </div>
+                      <div class="days"></div>
+                      <div class="goto-today">
+                        <div class="goto">
+                          <input type="text" placeholder="mm/yyyy" class="date-input" />
+                          <button class="goto-btn">Go</button>
+                        </div>
+                        <button class="today-btn">Today</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="right">
+                    <div class="today-date">
+                      <div class="event-day">wed</div>
+                      <div class="event-date">12th december 2022</div>
+                    </div>
+                    <div class="events"></div>
+                    <div class="add-event-wrapper">
+                      <div class="add-event-header">
+                        <div class="title">Add Event</div>
+                        <i class="fas fa-times close"></i>
+                      </div>
+                      <div class="add-event-body">
+                        <div class="add-event-input">
+                          <input type="text" placeholder="Event Name" class="event-name" />
+                        </div>
+                        <div class="add-event-input">
+                          <input
+                            type="text"
+                            placeholder="Event Time From"
+                            class="event-time-from"
+                          />
+                        </div>
+                        <div class="add-event-input">
+                          <input
+                            type="text"
+                            placeholder="Event Time To"
+                            class="event-time-to"
+                          />
+                        </div>
+                       
+                      </div>
+                      <div class="add-event-footer">
+                        <button class="add-event-btn">Add Event</button>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-event">
+                    <i class="fas fa-plus"></i>
+                  </button>
+                </div>
+            </div>
+
+
+
+       </section>
+
+      <section id= 'third'>
+        <div class="music-player">
+          <div class="flexbox_dashboard" style="width: 50%; align-items: center; top: 3%;">
+            <audio id="audio">
+              Your browser does not support the audio element.
+            </audio>
+            <div id="song-info">
+              <div id="song-title" style="color: antiquewhite; background-color: rgba(0, 0, 0, 0.397); height: 22px; border-radius: 5px; font-weight: 500;">Song title</div>
+              <img id="songImage" src="Images/music-empty.jpg" alt="Album Art" width="150px" height="150px" style="box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;">
+          </div>
+            <canvas id="wave-canvas" width="300" height="100"></canvas>
+            <div class="controls">
+              <div class="media-buttons">
+                <button id="repeatBtn">
+                  <i class="fas fa-repeat button-icons delta"></i>
+                  <span class="button-text milli"></span>
+                </button>
+
+                <button class="back-button media-button " id="prevBtn" label="back">
+                  <i class="fas fa-step-backward button-icons"></i>
+                  <span class="button-text milli"></span>
+                </button>
+            
+              
+            
+                <button class="play-button media-button play-pause-button" id="playPauseBtn" label="play">
+                  <i class="fas fa-play button-icons delta"></i>
+                  <span class="button-text milli"></span>
+                </button>
+            
+               
+            
+                <button class="skip-button media-button" id="nextBtn" label="skip">
+                  <i class="fas fa-step-forward button-icons"></i>
+                  <span class="button-text milli"></span>
+                </button>
+
+                <button id="volumeBtn">
+                  <i class="fas fa-volume-up button-icons delta"></i>
+                  <span class="button-text milli"></span>
+                </button>
+
+              </div>
+              
+              <!-- <button id="prevBtn"><i class="fas fa-step-backward"></i></button>
+              <button id="playPauseBtn"><i class="fas fa-play" style="font-size: 30px;"></i></button>
+               <button id="stopBtn"><i class="fas fa-stop"></i></button>
+              <button id="nextBtn"><i class="fas fa-step-forward"></i></button> -->
+              
+            
+              <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="6">
+              
+              <div class="progress-bar-wrapper">
+                
+                  <input type="range" id="music-progress-bar" class="music-progress-bar" min="0" max="100" step="0.1" value="0">
+                  <div class="progress-fill" ></div>
+              </div>
+              <div id="time-display" class="time-display">0:00 / 0:00</div>
+          </div>
+          </div>
+          <div class="flexbox_dashboard" style="width: 50%; background-color: rgb(20 20 20 / 68%); top: 3%;">
+            <div class="queue">
+                <h2 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; color: aliceblue;">Songs list</h2>
+                <ul id="songList" class="song-list"></ul>
+            </div>
+          </div>
+        </div>
+       </section>
+
+      <section id= 'fourth'>
+        <video id="myVideo" width="640" height="360" controls>
+          <source src="sample2.mp4" type="video/mp4">
+          <source src="sample1.mp4" type="video/mp4">
+          <source src="sample3.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+      </video>
+       </section>
+
+     </div>
+
+
+<script>
+   var video = document.getElementById("myVideo");
+    var videos = ["sample1.mp4", "sample2.mp4", "sample3.mp4"];
+    var currentVideoIndex = 0;
+
+    video.addEventListener("ended", function () {
+        // Play the next video in the loop
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        video.src = videos[currentVideoIndex];
+        video.play();
+    });
+  // Set the default active link to #first
+  document.getElementById('firstLink').classList.add('active');
+
+  // Function to handle click events on navigation links
+  function handleNavLinkClick(event) {
+      // Remove the 'active' class from all links
+      document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+
+      // Add the 'active' class to the clicked link
+      event.currentTarget.classList.add('active');
+  }
+
+  // Add click event listeners to all navigation links
+  document.querySelectorAll('nav a').forEach(link => link.addEventListener('click', handleNavLinkClick));
+
+       let shouldCloseModal = true;
+  let intervalId; // Variable to store the interval ID
+
+  function displayTime(timezone, elementId) {
+    const options = {
+      timeZone: timezone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true,
+    };
+
+    const date = new Date().toLocaleString("en-US", options);
+    const formattedDate = date.replace(',', '');
+    document.getElementById(elementId).textContent = formattedDate;
+  }
+
+  function updateTime() {
+    const selectedTimeZone = document.getElementById("timezoneSelect").value;
+    displayTime(selectedTimeZone, "selectedTimeZoneTime");
+    if (shouldCloseModal) {
+      updateButtonLabel(selectedTimeZone);
+    }
+  }
+
+  function openModal_wt() {
+    shouldCloseModal = false;
+    clearInterval(intervalId); // Clear the interval when modal is open
+    document.getElementById("timezoneModal_wt").style.display = "flex";
+    document.getElementById("closeButton_wt").style.display = "block";
+}
+
+  function closeModal_wt() {
+    shouldCloseModal = true;
+    document.getElementById("timezoneModal_wt").style.display = "none";
+    intervalId = setInterval(() => {
+      updateTime();
+    }, 1000); // Reset the interval when modal is closed
+  }
+
+  function updateButtonLabel(selectedTimeZone) {
+    const button = document.getElementById("timezoneButton_wt");
+    button.textContent = `${selectedTimeZone}`;
+
+  }
+
+  // Initial display
+  updateTime();
+
+  // Periodically update the time every second
+  intervalId = setInterval(() => {
+    updateTime();
+  }, 1000);
+
+ 
+      </script>
+
+
+      <script src="scripts/calendar.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

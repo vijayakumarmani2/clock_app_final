@@ -1,0 +1,315 @@
+<body>
+	<div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form action="#">
+				<h1>Welcome Vijay...</h1>
+                
+				<div class="mainContainer">
+                    <div class="searchInput">
+                        
+                        <input type="text" placeholder="Enter City Name" id="searchInput" value="Chennai"/>
+                        <input id="submit" name="submit" type="submit" value="Search" />
+                        
+                    </div>
+                    <div class="windDetails" style="padding: 1%;">
+                        <div class="weatherIcon">
+                            <img src="Images/sun.png" alt="Clouds" id="weatherIcon" style="margin-right: 1.0rem;">
+                        </div>
+                        <div class="cityDetails">
+                            <div class="weather" id="weather" style="margin-left: 1.0rem; font-size: 3.0rem; color: cornsilk;"></div>
+                            <div class="desc"></div>
+                        </div>
+                       
+                    </div>
+                    <div class="windDetails">
+                        <div class="humidityBox" style="margin-right:  1.5rem; justify-content: center;">
+                            <img src="Images/thermometer.png" alt="Humidity">
+                            <div><p class="humidity" style="margin-bottom:  -0.5rem;"></p><span>Humidity</span></div>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="windSpeed" style="margin-left:  1.5rem; justify-content: center;">
+                            <img src="Images/wind.png" alt="Wind Speed">
+                            <div><p id="windSpeed" style="margin-bottom:  -0.5rem;"></p><span>Wind Speed</span></div>
+                        </div>
+                    </div>
+                </div>
+				<span>current time</span>
+                <div id="time" style="height: 100px; ">
+                        
+                    <div class="circle" style="--clr: #ff2972">
+                    <div class="dots hr_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="hh"></circle>
+                    </svg>
+                    <div id="hours">00</div>
+                    </div>
+                    <div class="circle" style="--clr: #fee800">
+                    <div class="dots min_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="mm"></circle>
+                    </svg>
+                    <div id="minutes">00</div>
+                    </div>
+                    <div class="circle" style="--clr: #04fc43">
+                    <div class="dots sec_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="ss"></circle>
+                    </svg>
+                    <div id="seconds">00</div>
+                    </div>
+                    <div class="ap">
+                    <div id="ampm">AM</div>
+                    </div>            
+                </div>
+				<a href="#">today</a>
+
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<h1>calender view</h1>
+					
+			</div>
+		</div>
+	</div>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li class="list active">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="text">Home</span>
+                    <span class="circle"></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="person-outline"></ion-icon>
+                    </span>
+                    <span class="text">Profile</span>
+                    <span class="circle"></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="chatbubble-outline"></ion-icon>
+                    </span>
+                    <span class="text">Message</span>
+                    <span class="circle"></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="camera-outline"></ion-icon>
+                    </span>
+                    <span class="text">Photos</span>
+                    <span class="circle"></span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="settings-outline"></ion-icon>
+                    </span>
+                    <span class="text">Settings</span>
+                    <span class="circle"></span>
+                </a>
+            </li>
+            <div class="indicator"></div>
+        </ul>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/clock.js"></script>
+  <script src="scripts/weather.js"></script>
+</body>
+
+
+last final 
+
+<body>
+    <script>
+        // Call your function after the DOM is fully loaded
+        window.onload = function() {
+          consoleText(['Hello Vijay!', 'Good Morning...'], 'text', ['white',  'Yellow']);
+        };
+    </script>
+
+    <div class="container">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+       
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
+            <a class="navbar-brand navbar-logo" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                    <li class="nav-item">
+                         <a class="nav-link" href="javascript:void(0);"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-address-book"></i>Address Book</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-clone"></i>Components</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-calendar-alt"></i>Calendar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Charts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Documents</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+       
+        <div class="glass-card_container1">
+            <div id="sub1" style="width: 50%;">
+            <div class="plaindiv" style="width: 100%; height: 100px; " >
+                <div class="row">
+                    <div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+                   </div>
+            </div>
+
+            <div  style="width: 100%; height: 200px; margin-top: 5px;">
+               <div class="row">
+                <header onclick="openModal()" style="display: block; ">
+                    <p id="headerText" style="font-size: 30px; margin-top: -.2rem;">Chennai</p>
+                  </header>
+                
+                  <div id="modal">
+                    <label for="searchInput">Search City:</label>
+                    <input type="text" id="searchInput">
+                    <button onclick="updateHeader()">Search</button>
+                    <button onclick="cancel()">Cancel</button>
+                  </div>
+                <div id="weather-display" >
+                    <!-- Weather information will be displayed here -->
+                </div>
+
+
+                
+               </div>
+            </div>
+            <div  style="width: 100%; height: 188px; margin-top: 5px; align-items: center;">
+                <div class="row">
+                <div id="time" style="height: 100px; ">
+                        
+                    <div class="circle" style="--clr: #ff2972">
+                    <div class="dots hr_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="hh"></circle>
+                    </svg>
+                    <div id="hours">00</div>
+                    </div>
+                    <div class="circle" style="--clr: #fee800">
+                    <div class="dots min_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="mm"></circle>
+                    </svg>
+                    <div id="minutes">00</div>
+                    </div>
+                    <div class="circle" style="--clr: #04fc43">
+                    <div class="dots sec_dot"></div>
+                    <svg>
+                        <circle cx="55" cy="55" r="50"></circle>
+                        <circle cx="55" cy="55" r="50" id="ss"></circle>
+                    </svg>
+                    <div id="seconds">00</div>
+                    </div>
+                    <div class="ap">
+                    <div id="ampm">AM</div>
+                    </div>  
+                    </div>          
+                </div>
+            </div>
+            </div>
+            <div class="cal_container" style="justify-content: center; align-items: center; flex-direction: column;">
+                <div class="calendar">
+                    <div class="calendar-body">
+                      <span class="month-name">Month</span>
+                      <span class="day-name">Day</span>
+                      <span class="date-number">00</span>
+                      <span class="year">0000</span>
+                    </div>
+                  </div>
+
+                  <div id="alarmList">
+                    <h2>Alarm List</h2>
+                    <div id="alarms"></div>
+                    <div class="add-alarm-card" onclick="showPopup()">Add Alarm</div>
+                  </div>
+                   <!-- Audio element for alarm sound -->
+                 <audio id="alarmSound" src="lokiverse.mp3" preload="auto"></audio>
+
+                
+                  <!-- Popup and Audio elements remain unchanged -->
+                
+                  <div id="popup" class="popup">
+                    <h2>Set Alarm</h2>
+                    <div id="popup-controls">
+                      Set alarm time: <input type="time" id="alarmTime">
+                      <div id="popup-weekdays">
+                        <label><input type="checkbox" value="0">Sun</label>
+                        <label><input type="checkbox" value="1">Mon</label>
+                        <label><input type="checkbox" value="2">Tue</label>
+                        <label><input type="checkbox" value="3">Wed</label>
+                        <label><input type="checkbox" value="4">Thu</label>
+                        <label><input type="checkbox" value="5">Fri</label>
+                        <label><input type="checkbox" value="6">Sat</label>
+                      </div>
+                      <div id="buttons">
+                        <button onclick="setAlarm()">Set Alarm</button>
+                        <button onclick="clearAlarmPopup()">Clear</button>
+                        <button onclick="closePopup()">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+              
+                   <!-- Alarm Popup -->
+  <div id="alarmPopup" class="popup">
+    <h2>Alarm Alert!</h2>
+    <div id="alarmIcon" class="alarm-icon"></div>
+    <p>Your alarm is ringing.</p>
+    <button onclick="stopAlarm()">Stop Alarm</button>
+  </div>
+                  <script type="text/javascript">
+                  const dayNumber = new Date().getDate();
+                  const year = new Date().getFullYear();
+                  const dayName = new Date().toLocaleString("default", {weekday: "long"});
+                  const monthName = new Date().toLocaleString("default", {month: "long"});
+              
+                  document.querySelector(".month-name").innerHTML = monthName;
+                  document.querySelector(".day-name").innerHTML = dayName;
+                  document.querySelector(".date-number").innerHTML = dayNumber;
+                  document.querySelector(".year").innerHTML = year;
+                  </script>
+              
+            </div>
+
+        </div>
+       
+    </div>
+
+   
+</body>
